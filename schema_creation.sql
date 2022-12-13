@@ -1,4 +1,4 @@
-create table TradeType(
+create table tradetype(
 	tt_id char(3) not null,
 	tt_name char(12) not null,
 	tt_is_sell numeric(1) not null check(tt_is_sell > 0),
