@@ -1,3 +1,6 @@
+drop schema if exists master;
+create schema master authorization postgres;
+
 drop table if exists master.tradetype;
 create table master.tradetype(
 	tt_id char(3) not null,
