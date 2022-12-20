@@ -1,28 +1,33 @@
-create table tradetype(
+drop table if exists master.tradetype;
+create table master.tradetype(
 	tt_id char(3) not null,
 	tt_name char(12) not null,
 	tt_is_sell numeric(1) not null check(tt_is_sell > 0),
 	tt_is_mrkt numeric(1) not null check(tt_is_mrkt > 0)
 );
 
-create table statustype(
+drop table if exists master.statustype;
+create table master.statustype(
 	st_id char(4) not null,
 	st_name char(10) not null
 );
 
-create table taxrate(
+drop table if exists master.taxrate;
+create table master.taxrate(
 	tx_id char(4) not null,
 	tx_name char(50) not null,
 	tx_rate numeric(6,5) not null check(tx_rate > 0)
 );
 
-create table industry(
+drop table if exists master.industry;
+create table master.industry(
 	in_id char(2) not null,
 	in_name char(50) not null,
 	in_sc_id char(4) not null
 );
 
-create table dimdate(
+drop table if exists master.dimdate;
+create table master.dimdate(
 	sk_dateid numeric(11) not null check(sk_dateid > 0),
 	datevalue date not null,
 	datedesc char(20) not null,
@@ -43,7 +48,8 @@ create table dimdate(
 	holidayflag boolean
 );
 
-create table dimtime(
+drop table if exists master.dimtime;
+create table master.dimtime(
 	sk_timeid numeric(11) not null check(sk_timeid > 0),
 	timevalue time not null,
 	hourid numeric(2) not null check(hourid > 0),
@@ -56,7 +62,8 @@ create table dimtime(
 	officehoursflag boolean
 );
 
-create table dimcompany(
+drop table if exists master.dimcompany;
+create table master.dimcompany(
 	sk_companyid numeric(11) not null check(sk_companyid > 0),
 	companyid numeric(11) not null check(companyid > 0),
 	status char(10) not null,
@@ -79,7 +86,8 @@ create table dimcompany(
 	enddate date not null
 );
 
-create table dimbroker(
+drop table if exists master.dimbroker;
+create table master.dimbroker(
 	sk_brokerid numeric(11) not null check(sk_brokerid > 0),
 	brokerid numeric(11) not null check(brokerid > 0),
 	managerid numeric(11) check(managerid > 0),
@@ -95,7 +103,8 @@ create table dimbroker(
 	enddate date not null
 );
 
-create table dimcustomer(
+drop table if exists master.dimcustomer;
+create table master.dimcustomer(
 	sk_customerid numeric(11) not null check(sk_customerid > 0),
 	customerid numeric(11) not null check(customerid > 0),
 	taxid char(20) not null,
@@ -131,7 +140,8 @@ create table dimcustomer(
 	enddate date not null
 );
 
-create table dimaccount(
+drop table if exists master.dimaccount;
+create table master.dimaccount(
 	sk_accountid numeric(11) not null check(sk_accountid > 0),
 	accountid numeric(11) not null check(accountid > 0),
 	sk_brokerid numeric(11) not null check(sk_brokerid > 0),
@@ -145,7 +155,8 @@ create table dimaccount(
 	enddate date not null
 );
 
-create table dimsecurity(
+drop table if exists master.dimsecurity;
+create table master.dimsecurity(
 	sk_securityid numeric(11) not null check(sk_securityid > 0),
 	symbol char(15) not null,
 	issue char(6) not null,
@@ -163,7 +174,8 @@ create table dimsecurity(
 	enddate date not null 
 );
 
-create table dimtrade(
+drop table if exists master.dimtrade;
+create table master.dimtrade(
 	tradeid numeric(11) not null check(tradeid > 0),
 	sk_brokerid numeric(11) check(sk_brokerid > 0),
 	sk_createdateid numeric(11) not null check(sk_createdateid > 0),
@@ -187,7 +199,8 @@ create table dimtrade(
 	batchid numeric(5) not null check(batchid > 0)
 );
 
-create table financial(
+drop table if exists master.financial;
+create table master.financial(
 	sk_companyid numeric(11) not null check(sk_companyid > 0),
 	fi_year numeric(4) not null check(fi_year > 0),
 	fi_qtr numeric(1) not null check(fi_qtr > 0),
@@ -204,7 +217,8 @@ create table financial(
 	fi_out_dilut numeric(12) not null
 );
 
-create table factcashbalances(
+drop table if exists master.factcashbalances;
+create table master.factcashbalances(
 	sk_customerid numeric(11) not null check(sk_customerid > 0),
 	sk_accountid numeric(11) not null check(sk_accountid > 0),
 	sk_dateid numeric(11) not null check(sk_dateid > 0),
@@ -212,7 +226,8 @@ create table factcashbalances(
 	batchid numeric(5) not null check(batchid > 0)
 );
 
-create table factholdings(
+drop table if exists master.factholdings;
+create table master.factholdings(
 	tradeid numeric(11) not null check(tradeid > 0),
 	currenttradeid numeric(11) not null check(currenttradeid > 0),
 	sk_customerid numeric(11) not null check(sk_customerid > 0),
@@ -226,7 +241,8 @@ create table factholdings(
 	batchid numeric(5) not null check(batchid > 0)
 );
 
-create table factmarkethistory(
+drop table if exists master.factmarkethistory;
+create table master.factmarkethistory(
 	sk_securityid numeric(11) not null check(sk_securityid > 0),
 	sk_companyid numeric(11) not null check(sk_companyid > 0),
 	sk_dateid numeric(11) not null check(sk_dateid > 0),
@@ -243,7 +259,8 @@ create table factmarkethistory(
 	batchid numeric(5) not null check(batchid > 0)
 );
 
-create table factwatches(
+drop table if exists master.factwatches;
+create table master.factwatches(
 	sk_customerid numeric(11) not null check(sk_customerid > 0),
 	sk_securityid numeric(11) not null check(sk_securityid > 0),
 	sk_dateid_dateplaced numeric(11) not null check(sk_dateid_dateplaced > 0),
@@ -251,7 +268,8 @@ create table factwatches(
 	batchid numeric(5) not null check(batchid > 0)
 );
 
-create table prospect(
+drop table if exists master.prospect;
+create table master.prospect(
 	agencyid char(30) not null,
 	sk_recorddateid numeric(11) not null check(sk_recorddateid > 0),
 	sk_updatedateid numeric(11) not null check(sk_updatedateid > 0),
@@ -282,8 +300,8 @@ create table prospect(
 );
 
 -- operational tables
-
-create table audit(
+drop table if exists master.audit;
+create table master.audit(
 	dataset char(20) not null,
 	batchid numeric(5) check(batchid > 0),
 	date date,
@@ -292,7 +310,8 @@ create table audit(
 	dvalue numeric(15, 5)
 );
 
-create table dimessages(
+drop table if exists master.dimessages;
+create table master.dimessages(
 	messagedateandtime timestamp not null,
 	batchid numeric(5) not null check(batchid > 0),
 	messagesource char(30),
@@ -300,25 +319,3 @@ create table dimessages(
 	messagetype char(12) not null,
 	messagedata char(100)
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
