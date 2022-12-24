@@ -30,7 +30,7 @@ drop table if exists staging.customermgmt;
 create table staging.customermgmt(
 	--action element
 	actiontype char(9) check(actiontype in ('NEW','ADDACCT','UPDCUST','UPDACCT','CLOSEACCT','INACT')),
-	actionts char check(length(actionts) > 0),
+	actionts varchar check(length(actionts) > 0),
 	--action.customer element
 	c_id numeric(11) not null check(c_id >= 0),
 	c_tax_id char(20) check((actiontype = 'NEW' and length(c_tax_id) > 0) or (actiontype != 'NEW')),
@@ -59,7 +59,7 @@ create table staging.customermgmt(
 	c_lcl_tx_id char(4),
 	c_nat_tx_id char(4),
 	--action.customer.account attribute
-	ca_id numeric(11) not null check(ca_id >= 0),
+	ca_id numeric(11),
 	ca_tax_st numeric(1) check((actiontype = 'NEW' and ca_tax_st >= 0) or (actiontype != 'NEW')),
 	--action.customer.account element
 	ca_b_id numeric(11) check((actiontype = 'NEW' and ca_b_id >= 0) or (actiontype != 'NEW')),
