@@ -52,9 +52,21 @@ create table staging.customermgmt(
 	c_prim_email char(50),
 	c_alt_email char(50),
 	--action.customer.contactinfo.phone element
-	c_phone_1 char(50), --combines c_ctry_code, c_area_code, c_local, c_ext, handled in python
-	c_phone_2 char(50), --combines c_ctry_code, c_area_code, c_local, c_ext, handleld 
-	c_phone_3 char(50), --combines c_ctry_code, c_area_code, c_local, c_ext
+	--phone1
+	c_p_1_ctry_code char(20),
+	c_p_1_area_code char(20),
+	c_p_1_local char(20),
+	c_p_1_ext char(20),
+	--phone2
+	c_p_2_ctry_code char(20),
+	c_p_2_area_code char(20),
+	c_p_2_local char(20),
+	c_p_2_ext char(20),
+	--phone3
+	c_p_3_ctry_code char(20),
+	c_p_3_area_code char(20),
+	c_p_3_local char(20),
+	c_p_3_ext char(20),
 	--action.customer.taxinfo element
 	c_lcl_tx_id char(4),
 	c_nat_tx_id char(4),
