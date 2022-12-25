@@ -293,7 +293,7 @@ create table master.prospect(
 	numbercars numeric(2) check(numbercars >= 0),
 	numberchildren numeric(2) check(numbercars >= 0),
 	maritalstatus char(1),
-	age numeric(3) check(age > 0),
+	age numeric(3) check(age >= 0),
 	creditrating numeric(4) check(creditrating >= 0),
 	ownorrentflag char(1),
 	employer char(30),
