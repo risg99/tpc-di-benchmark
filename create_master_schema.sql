@@ -81,7 +81,7 @@ create table master.dimcompany(
 	city char(25) not null,
 	stateprov char(20) not null,
 	country char(24),
-	description char(50) not null,
+	description char(150) not null,
 	foundingdate date,
 	iscurrent boolean not null,
 	batchid numeric(5) not null check(batchid >= 0),
