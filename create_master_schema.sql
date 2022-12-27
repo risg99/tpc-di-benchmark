@@ -196,9 +196,9 @@ create table master.dimtrade(
 	sk_accountid numeric(11) not null check(sk_accountid >= 0),
 	executedby char(64) not null,
 	tradeprice numeric(8,2) check(tradeprice >= 0),
-	fee numeric(10,2) check(fee > 0),
+	fee numeric(10,2) check(fee >= 0),
 	commission numeric(10,2) check(commission >= 0),
-	tax numeric(10,2) check(tax > 0),
+	tax numeric(10,2) check(tax >= 0),
 	batchid numeric(5) not null check(batchid >= 0)
 );
 
