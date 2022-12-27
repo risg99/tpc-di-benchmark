@@ -1,18 +1,6 @@
 drop schema if exists staging cascade;
 create schema staging authorization postgres;
 
--- drop table if exists staging.account;
--- create table staging.account(
--- 	cdc_flag char(1) check(cdc_flag in ('I', 'U')),
--- 	cdc_dsn numeric(12) not null check(cdc_dsn > 0),
--- 	ca_id numeric(11) not null check(ca_id > 0),
--- 	ca_b_id numeric(11) not null check(ca_b_id > 0),
--- 	ca_c_id numeric(11) not null check(ca_c_id > 0),
--- 	ca_name char(50),
--- 	ca_tax_st numeric(1) check(ca_tax_st in (0, 1, 2)),
--- 	ca_st_id char(4) check(ca_st_id in ('ACTV', 'INAC'))
--- );
-
 drop table if exists staging.batchdate;
 create table staging.batchdate(
 	batchdate date not null	
@@ -108,6 +96,11 @@ create table staging.date(
 	fiscalqtrid numeric(5) not null check(fiscalqtrid >= 0),
 	fiscalqtrdesc char(20) not null,	
 	holidayflag boolean
+);
+
+drop table if exists staging.finwire;
+create table staging.finwire(
+	text varchar
 );
 
 drop table if exists staging.finwire_cmp;
