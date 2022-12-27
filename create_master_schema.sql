@@ -186,7 +186,7 @@ create table master.dimtrade(
 	sk_closedateid numeric(11) check(sk_closedateid >= 0),
 	sk_closetimeid numeric(11) check(sk_closetimeid >= 0),
 	status char(10) not null,
-	type char(10) not null,
+	type char(12) not null,
 	cashflag boolean not null,
 	sk_securityid numeric(11) not null check(sk_securityid >= 0),
 	sk_companyid numeric(11) not null check(sk_companyid >= 0),
