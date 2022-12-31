@@ -1,4 +1,4 @@
-# TPC-DI-Benchmark: Data Integration with PostgreSQL & Airflow
+## **TPC-DI-Benchmark:** Data Integration with PostgreSQL & Airflow
 #### Data Warehouse Benchmark Project 2
 
 ---
